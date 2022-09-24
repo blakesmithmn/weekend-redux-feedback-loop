@@ -12,9 +12,11 @@ import Supported from '../Supported/Supported';
 import Comments from '../Comments/Comments';
 import Admin from '../Admin/Admin';
 import Review from '../Review/Review';
+import Complete from '../Complete/Complete';
 
 // MUI IMPORTS
-import ReplayIcon from '@mui/icons-material/Replay';
+import Grid from '@mui/material/Grid';
+
 
 
 function App() {
@@ -37,6 +39,9 @@ function App() {
         </Route>
         <Route exact path="/review">
           <Review />
+        </Route>
+        <Route exact path="/complete">
+          <Complete />
         </Route>
         <Route exact path="/admin">
           <Admin />

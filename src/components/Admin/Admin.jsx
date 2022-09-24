@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useState, setState } from 'react';
 import axios from 'axios';
 // MUI IMPORTS
+import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';

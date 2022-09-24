@@ -4,6 +4,7 @@ import { useState, setState } from 'react';
 
 // MUI IMPORTS
 import Card from '@mui/material/Card';
+import Grid from '@mui/material/Grid';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
@@ -25,21 +26,25 @@ function Comments() {
     }
 
     return (
-        <Card sx={{ maxWidth: 500 }} className="feedbackCard">
-            <CardContent>
-                <Typography variant='h5'>Anything you'd like to add?</Typography>
-            </CardContent>
-            <CardContent>
-                <TextField variant='outlined' label="comments and concerns" value={comment} onChange={(event) => setComment(event.target.value)} fullWidth></TextField>
-            </CardContent>
-            <CardActions>
-                <Button variant='outlined' onClick={handleComment}>
-                    <Link to="/review">
-                        Next
-                    </Link>
-                </Button>
-            </CardActions>
-        </Card >
+        <Grid container spacing={0} direction="column" alignItems="center" justify="center" style={{ minHeight: '100vh' }}>
+            <Grid item xs={3}>
+                <Card sx={{ maxWidth: 850 }} className="feedbackCard">
+                    <CardContent>
+                        <Typography variant='h5'>Anything you'd like to add?</Typography>
+                    </CardContent>
+                    <CardContent>
+                        <TextField variant='outlined' label="comments and concerns" value={comment} onChange={(event) => setComment(event.target.value)} fullWidth></TextField>
+                    </CardContent>
+                    <CardActions>
+                        <Button variant='outlined' onClick={handleComment}>
+                            <Link to="/review">
+                                Next
+                            </Link>
+                        </Button>
+                    </CardActions>
+                </Card >
+            </Grid>
+        </Grid>
     )
 }
 
