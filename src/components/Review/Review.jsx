@@ -23,7 +23,7 @@ function Review() {
         // POST ROUTE
     }
     return (
-        <Card sx={{ maxWidth: 500 }} className="feedbackCard">
+        <Card sx={{ maxWidth: 550 }} className="feedbackCard" raised="true">
             <CardContent>
                 <Typography variant='h5'>Review</Typography>
             </CardContent>
