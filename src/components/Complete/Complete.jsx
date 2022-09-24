@@ -19,9 +19,10 @@ import ReplayIcon from '@mui/icons-material/Replay';
 
 
 function Complete() {
+    const history = useHistory();
 
     const handleReset = () => {
-
+        history.push('/');
     }
 
     return (
@@ -32,7 +33,7 @@ function Complete() {
                         <Typography variant='h5'>Thanks for your Feedback!</Typography>
                     </CardContent>
                     <CardContent>
-                        <Button variant='outlined'>Start Over</Button>
+                        <Button variant='outlined' onClick={handleReset}>Start Over</Button>
                     </CardContent>
                 </Card >
             </Grid>

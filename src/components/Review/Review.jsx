@@ -54,7 +54,7 @@ function Review() {
                     </CardContent>
                     <CardContent>
                         <TableContainer>
-                            <Table sx={{ minWidth: 700 }} aria-label="simple table">
+                            <Table sx={{ maxWidth: 600 }} aria-label="simple table">
                                 <TableHead>
                                     <TableRow>
                                         <TableCell>Feeling Rating:</TableCell>
