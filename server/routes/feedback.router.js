@@ -18,17 +18,20 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     // VARIABLES FOR QUERY
     let feedback = req.body;
-    let feeling = feedback.feeling;
-    let understanding = feedback.understanding;
-    let support = feedback.support;
+    console.log('Feedback is:', feedback);
+    let feeling = Number(feedback.feeling);
+    console.log('Feeling is:', feeling);
+    let understanding = Number(feedback.understanding);
+    let support = Number(feedback.support);
     let comments = feedback.comments;
 
     let sqlQuery = `
         INSERT INTO "feedback"
-        ("feeling","understanding","suport","comments")
+        ("feeling","understanding","support","comments")
         VALUES
         ($1,$2,$3,$4);
     `
+
     let sqlValues = [feeling, understanding, support, comments];
     console.log('POST feedback');
     pool.query(sqlQuery, sqlValues)

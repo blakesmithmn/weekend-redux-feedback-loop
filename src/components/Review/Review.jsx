@@ -20,16 +20,31 @@ function Review() {
     const feedback = useSelector(store => store.feedbackReducer);
     const handleSubmit = () => {
         console.log('State thing');
+
         // POST ROUTE
+        axios({
+            method: 'POST',
+            url: '/feedback',
+            data: feedback
+        })
+            .then((response) => {
+                // clear inputs
+                console.log('Posted?')
+                // show success
+
+            })
+            .catch((error) => {
+                console.log('Error in POST:', error);
+            })
     }
     return (
-        <Card sx={{ maxWidth: 550 }} className="feedbackCard" raised="true">
+        <Card sx={{ maxWidth: 750 }} className="feedbackCard" raised>
             <CardContent>
                 <Typography variant='h5'>Review</Typography>
             </CardContent>
             <CardContent>
                 <TableContainer>
-                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                    <Table sx={{ minWidth: 700 }} aria-label="simple table">
                         <TableHead>
                             <TableRow>
                                 <TableCell>Feeling Rating:</TableCell>
@@ -51,9 +66,9 @@ function Review() {
             </CardContent>
             <CardActions>
                 <Button variant='outlined' onClick={handleSubmit}>
-                    <Link to="/">
-                        Submit
-                    </Link>
+                    {/* <Link to="/"> */}
+                    Submit
+                    {/* </Link> */}
                 </Button>
             </CardActions>
         </Card >
