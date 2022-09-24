@@ -44,4 +44,6 @@ router.post('/', (req, res) => {
         })
 })
 
+// DELETE ROUTE FOR ADMIN
+
 module.exports = router;
