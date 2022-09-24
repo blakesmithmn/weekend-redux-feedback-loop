@@ -1,4 +1,4 @@
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { useState, setState } from 'react';
 // MUI IMPORTS
@@ -16,6 +16,7 @@ import FormLabel from '@mui/material/FormLabel';
 function Feelings() {
     const [rating, setRating] = useState(0);
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const handleFeelings = () => {
         console.log(rating);
@@ -24,7 +25,10 @@ function Feelings() {
             payload: rating
         }
         dispatch(action);
+        history.push('/two');
+
     };
+
 
     return (
         <Card sx={{ maxWidth: 500 }} className="feedbackCard">
@@ -32,21 +36,17 @@ function Feelings() {
                 <Typography variant='h5'>How are you Feeling Today?</Typography>
             </CardContent>
             <CardContent>
-                <RadioGroup name="supportedradio">
-                    <FormControlLabel control={<Radio />} label="1 - Horrible" value="1" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
-                    <FormControlLabel control={<Radio />} label="2 - Could be Better" value="2" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
-                    <FormControlLabel control={<Radio />} label="3 -  Not too Shabby" value="3" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
-                    <FormControlLabel control={<Radio />} label="4 - Above Average" value="4" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
-                    <FormControlLabel control={<Radio />} label="5 -  Great!" value="5" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
-                </RadioGroup>
+                <form onSubmit={handleFeelings}>
+                    <RadioGroup name="supportedradio">
+                        <FormControlLabel control={<Radio required />} label="1 - Horrible" value="1" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
+                        <FormControlLabel control={<Radio />} label="2 - Could be Better" value="2" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
+                        <FormControlLabel control={<Radio />} label="3 -  Not too Shabby" value="3" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
+                        <FormControlLabel control={<Radio />} label="4 - Above Average" value="4" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
+                        <FormControlLabel control={<Radio />} label="5 -  Great!" value="5" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
+                    </RadioGroup>
+                    <Button type="submit" variant='outlined'>NEXT</Button>
+                </form>
             </CardContent>
-            <CardActions>
-                <Button variant='outlined' onClick={handleFeelings}>
-                    <Link to="/two">
-                        Next
-                    </Link>
-                </Button>
-            </CardActions>
         </Card >
     )
 }

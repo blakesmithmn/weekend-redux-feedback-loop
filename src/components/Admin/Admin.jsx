@@ -18,6 +18,7 @@ import TableRow from '@mui/material/TableRow';
 
 function Admin() {
     // DELETE ROUTE FOR TABLE ID's
+
     return (
         <TableContainer>
             <Table sx={{ minWidth: 500 }} aria-label="simple table">

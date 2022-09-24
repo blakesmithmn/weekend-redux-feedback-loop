@@ -45,5 +45,24 @@ router.post('/', (req, res) => {
 })
 
 // DELETE ROUTE FOR ADMIN
+router.delete('/:idToDelete', (req, res) => {
+    let id = req.params.idToDelete;
+    console.log(id);
+
+    const sqlQuery = `
+        DELETE from "feedback"
+            WHERE "id"=$1
+    `
+    const sqlValues = [id];
+
+    pool.query(sqlQuery, sqlValues)
+        .then((poolRes) => {
+            res.sendStatus(200)
+        })
+        .catch((poolErr) => {
+            console.log('Error deleting:', poolErr);
+            res.sendStatus(500);
+        })
+})
 
 module.exports = router;
