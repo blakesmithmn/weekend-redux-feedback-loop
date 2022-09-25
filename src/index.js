@@ -21,6 +21,8 @@ const feedbackReducer = (state = {}, action) => {
             return { ...state, support: action.payload };
         case 'COMMENTS_INPUT':
             return { ...state, comments: action.payload };
+        case 'RESET_FORM':
+            return {};
     }
     return state;
 };

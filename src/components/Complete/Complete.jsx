@@ -1,6 +1,6 @@
 
 import { Link, useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useState, setState } from 'react';
 
 // MUI IMPORTS
@@ -20,8 +20,15 @@ import ReplayIcon from '@mui/icons-material/Replay';
 
 function Complete() {
     const history = useHistory();
+    const feedback = useSelector(store => store.feedbackReducer);
+    const dispatch = useDispatch();
 
+    // FORM RESET TO EMPTY OBJECT - AND BRING US BACK TO START
     const handleReset = () => {
+        const action = {
+            type: 'RESET_FORM',
+        }
+        dispatch(action);
         history.push('/');
     }
 

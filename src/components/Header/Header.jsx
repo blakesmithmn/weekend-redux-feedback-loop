@@ -16,18 +16,9 @@ function Header() {
     return (
         <header className='App-header'>
             <Grid container spacing={0} direction="column" alignItems="center" justify="center">
-                <Grid item xs={3} md={6} lg={12}>
+                <Grid item xs={6} sm={12} md={8} lg={6}>
                     <AppBar position='static' className='appbar' sx={{ maxWidth: 850 }}>
                         <Toolbar>
-                            <IconButton
-                                size="large"
-                                edge="start"
-                                color="inherit"
-                                aria-label="menu"
-                                sx={{ mr: 2 }}
-                            >
-                                <MenuIcon />
-                            </IconButton>
                             <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
                                 Daily Feedback
                             </Typography>
@@ -35,7 +26,7 @@ function Header() {
                     </AppBar>
                 </Grid>
             </Grid>
-        </header>
+        </header >
     )
 };
 

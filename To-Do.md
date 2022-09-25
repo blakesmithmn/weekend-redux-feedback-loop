@@ -1,4 +1,5 @@
 [] Formatting elements for responsiveness
+[] Setting theme colors
 [] Progress Bar
 [] Conditionally Render Review Page to be able to edit values
     [] Values can't be empty!
