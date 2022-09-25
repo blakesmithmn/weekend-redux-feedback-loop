@@ -40,7 +40,10 @@ function Complete() {
                         <Typography variant='h5'>Thanks for your Feedback!</Typography>
                     </CardContent>
                     <CardContent>
-                        <Button variant='outlined' onClick={handleReset}>Start Over</Button>
+                        <Button variant='outlined' onClick={handleReset}>
+                            <ReplayIcon />
+                            Start Over
+                        </Button>
                     </CardContent>
                 </Card >
             </Grid>

@@ -10,6 +10,8 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import LinearProgress, { LinearProgressProps } from '@mui/material/LinearProgress';
+
 
 // MUI TABLE
 import Table from '@mui/material/Table';
@@ -20,7 +22,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
 function Review() {
-
+    const [editMode, setEditMode] = useState(false);
     const feedback = useSelector(store => store.feedbackReducer);
     const history = useHistory();
 
@@ -40,8 +42,14 @@ function Review() {
                 history.push('/complete');
             })
             .catch((error) => {
+                alert('Questions 1-3 Must have scores to continue ...')
+                setEditMode(true);
                 console.log('Error in POST:', error);
             })
+    }
+
+    const navigateToEdit = () => {
+        history.push('/edit')
     }
 
     return (
@@ -49,6 +57,7 @@ function Review() {
             <Grid item xs={3}>
 
                 <Card sx={{ maxWidth: 850 }} className="feedbackCard" raised>
+
                     <CardContent>
                         <Typography variant='h5'>Review</Typography>
                     </CardContent>
@@ -74,12 +83,25 @@ function Review() {
                             </Table>
                         </TableContainer>
                     </CardContent>
+                    <CardContent>
+                        <LinearProgress variant="determinate" value={90} />
+                    </CardContent>
                     <CardActions>
-                        <Button variant='outlined' onClick={handleSubmit}>
-                            {/* <Link to="/"> */}
-                            Submit
-                            {/* </Link> */}
+                        <Button onClick={() => history.push('/four')}>
+                            PREV
                         </Button>
+                        {/* CONDITIONAL RENDERING FOR EDITS */}
+                        {editMode ?
+                            <Button variant='outlined' onClick={navigateToEdit}>
+                                Edit Scores
+                            </Button>
+                            :
+                            <Button variant='outlined' onClick={handleSubmit}>
+                                {/* <Link to="/"> */}
+                                Submit
+                                {/* </Link> */}
+                            </Button>
+                        }
                     </CardActions>
                 </Card >
             </Grid>

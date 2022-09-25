@@ -14,6 +14,8 @@ import Radio from '@mui/material/Radio';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import LinearProgress, { LinearProgressProps } from '@mui/material/LinearProgress';
+
 
 function Understanding() {
     const [rating, setRating] = useState(0);
@@ -40,14 +42,20 @@ function Understanding() {
                     <CardContent>
                         <form onSubmit={handleUnderstanding}>
                             <RadioGroup name="supportedradio">
-                                <FormControlLabel control={<Radio required />} label="1 - Horrible" value="1" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
-                                <FormControlLabel control={<Radio />} label="2 - Could be Better" value="2" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
-                                <FormControlLabel control={<Radio />} label="3 -  Not too Shabby" value="3" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
-                                <FormControlLabel control={<Radio />} label="4 - Above Average" value="4" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
-                                <FormControlLabel control={<Radio />} label="5 -  Great!" value="5" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
+                                <FormControlLabel control={<Radio required />} label="1 - I'm Completely Lost" value="1" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
+                                <FormControlLabel control={<Radio />} label="2 - Something is not Clicking" value="2" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
+                                <FormControlLabel control={<Radio />} label="3 -  I think I'll Get it?" value="3" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
+                                <FormControlLabel control={<Radio />} label="4 - I understand what is going on" value="4" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
+                                <FormControlLabel control={<Radio />} label="5 -  Piece of Cake!" value="5" onChange={(event) => setRating(event.target.value)}></FormControlLabel>
                             </RadioGroup>
+                            <Button onClick={() => history.push('/')}>
+                                PREV
+                            </Button>
                             <Button type="submit" variant='outlined'>NEXT</Button>
                         </form>
+                    </CardContent>
+                    <CardContent>
+                        <LinearProgress variant="determinate" value={20} />
                     </CardContent>
                 </Card >
             </Grid>

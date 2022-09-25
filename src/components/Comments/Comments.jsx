@@ -1,4 +1,4 @@
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { useState, setState } from 'react';
 
@@ -10,11 +10,14 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import LinearProgress, { LinearProgressProps } from '@mui/material/LinearProgress';
+
 
 
 function Comments() {
     const [comment, setComment] = useState('');
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const handleComment = () => {
         console.log(comment);
@@ -23,12 +26,14 @@ function Comments() {
             payload: comment
         }
         dispatch(action);
+        history.push('/review')
     }
 
     return (
-        <Grid container spacing={0} direction="column" alignItems="center" justify="center" style={{ minHeight: '100vh' }}>
-            <Grid item xs={3}>
-                <Card sx={{ maxWidth: 850 }} className="feedbackCard">
+        <Grid container spacing={0} direction="column" alignItems="center" justify="center" style={{ minHeight: '100vh' }} columns={{ xs: 4, sm: 8, md: 12 }}>
+            <Grid item xs={10} sm={10} md={10}>
+
+                <Card className="feedbackCard">
                     <CardContent>
                         <Typography variant='h5'>Anything you'd like to add?</Typography>
                     </CardContent>
@@ -36,12 +41,16 @@ function Comments() {
                         <TextField variant='outlined' label="comments and concerns" value={comment} onChange={(event) => setComment(event.target.value)} fullWidth></TextField>
                     </CardContent>
                     <CardActions>
+                        <Button onClick={() => history.push('/three')}>
+                            PREV
+                        </Button>
                         <Button variant='outlined' onClick={handleComment}>
-                            <Link to="/review">
-                                Next
-                            </Link>
+                            Next
                         </Button>
                     </CardActions>
+                    <CardContent>
+                        <LinearProgress variant="determinate" value={60} />
+                    </CardContent>
                 </Card >
             </Grid>
         </Grid>

@@ -13,6 +13,8 @@ import Radio from '@mui/material/Radio';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import LinearProgress, { LinearProgressProps } from '@mui/material/LinearProgress';
+
 
 function Feelings() {
     const [rating, setRating] = useState(0);
@@ -50,6 +52,10 @@ function Feelings() {
                             <Button type="submit" variant='outlined'>NEXT</Button>
                         </form>
                     </CardContent>
+                    <CardContent>
+                        <LinearProgress variant="determinate" value={0} />
+                    </CardContent>
+
                 </Card >
             </Grid>
         </Grid>

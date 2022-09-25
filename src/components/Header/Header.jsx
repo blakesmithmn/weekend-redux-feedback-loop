@@ -17,7 +17,7 @@ function Header() {
         <header className='App-header'>
             <Grid container spacing={0} direction="column" alignItems="center" justify="center">
                 <Grid item xs={6} sm={12} md={8} lg={6}>
-                    <AppBar position='static' className='appbar' sx={{ maxWidth: 850 }}>
+                    <AppBar position='static' className='appbar' sx={{ maxWidth: 850 }} color='secondary'>
                         <Toolbar>
                             <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
                                 Daily Feedback

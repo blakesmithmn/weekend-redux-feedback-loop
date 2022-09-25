@@ -13,13 +13,28 @@ import Comments from '../Comments/Comments';
 import Admin from '../Admin/Admin';
 import Review from '../Review/Review';
 import Complete from '../Complete/Complete';
+import Edit from '../Edit/Edit';
 
 // MUI IMPORTS
 import Grid from '@mui/material/Grid';
+import { createTheme } from '@mui/material/styles';
+
 
 
 
 function App() {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#2A324B',
+        contrastText: '#ffcc00',
+      },
+      secondary: {
+        main: '#F1C0E8',
+        contrastText: '#ffcc00',
+      },
+    },
+  });
 
   return (
     <div className='App'>
@@ -39,6 +54,9 @@ function App() {
         </Route>
         <Route exact path="/review">
           <Review />
+        </Route>
+        <Route exact path="/edit">
+          <Edit />
         </Route>
         <Route exact path="/complete">
           <Complete />
