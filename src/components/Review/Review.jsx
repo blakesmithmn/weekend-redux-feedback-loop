@@ -27,8 +27,6 @@ function Review() {
     const history = useHistory();
 
     const handleSubmit = () => {
-        console.log('State thing');
-
         // POST ROUTE
         axios({
             method: 'POST',
@@ -37,7 +35,7 @@ function Review() {
         })
             .then((response) => {
                 // clear inputs
-                console.log('Posted?')
+                console.log('Posted to Database')
                 // show success
                 history.push('/complete');
             })

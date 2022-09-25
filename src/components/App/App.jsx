@@ -17,7 +17,7 @@ import Edit from '../Edit/Edit';
 
 // MUI IMPORTS
 import Grid from '@mui/material/Grid';
-import { createTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 
@@ -26,45 +26,50 @@ function App() {
   const theme = createTheme({
     palette: {
       primary: {
-        main: '#2A324B',
-        contrastText: '#ffcc00',
+        main: '#2C2C54',
+        contrastText: '#191F2F',
       },
       secondary: {
-        main: '#F1C0E8',
-        contrastText: '#ffcc00',
+        main: '#FAACB2',
+        contrastText: '#191F2F',
       },
+      background: {
+        paper: '#FFEFD7',
+      }
     },
   });
 
   return (
     <div className='App'>
-      <Header />
-      <Router>
-        <Route exact path="/">
-          <Feelings />
-        </Route>
-        <Route exact path="/two">
-          <Understanding />
-        </Route>
-        <Route exact path="/three">
-          <Supported />
-        </Route>
-        <Route exact path="/four">
-          <Comments />
-        </Route>
-        <Route exact path="/review">
-          <Review />
-        </Route>
-        <Route exact path="/edit">
-          <Edit />
-        </Route>
-        <Route exact path="/complete">
-          <Complete />
-        </Route>
-        <Route exact path="/admin">
-          <Admin />
-        </Route>
-      </Router>
+      <ThemeProvider theme={theme}>
+        <Header />
+        <Router>
+          <Route exact path="/">
+            <Feelings />
+          </Route>
+          <Route exact path="/two">
+            <Understanding />
+          </Route>
+          <Route exact path="/three">
+            <Supported />
+          </Route>
+          <Route exact path="/four">
+            <Comments />
+          </Route>
+          <Route exact path="/review">
+            <Review />
+          </Route>
+          <Route exact path="/edit">
+            <Edit />
+          </Route>
+          <Route exact path="/complete">
+            <Complete />
+          </Route>
+          <Route exact path="/admin">
+            <Admin />
+          </Route>
+        </Router>
+      </ThemeProvider>
     </div>
   );
 }

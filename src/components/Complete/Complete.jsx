@@ -2,6 +2,7 @@
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, setState } from 'react';
+import Success from './giphy.gif';
 
 // MUI IMPORTS
 import Grid from '@mui/material/Grid';
@@ -38,6 +39,9 @@ function Complete() {
                 <Card sx={{ maxWidth: 850 }} className="feedbackCard">
                     <CardContent>
                         <Typography variant='h5'>Thanks for your Feedback!</Typography>
+                    </CardContent>
+                    <CardContent>
+                        <img src={Success} />
                     </CardContent>
                     <CardContent>
                         <Button variant='outlined' onClick={handleReset}>
