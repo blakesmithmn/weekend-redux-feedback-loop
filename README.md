@@ -21,7 +21,7 @@ Over the course of a weekend we were tasked with using our knowledge of Redux an
 
 ## Screen Shots
 
-Gallery List View followed by Item View:
+GIF showing user flow:
 ![](finalproduct.gif)
 
 
