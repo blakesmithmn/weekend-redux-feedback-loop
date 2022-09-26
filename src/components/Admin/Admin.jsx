@@ -107,7 +107,7 @@ function Admin() {
                                             <TableRow key={response.id}>
                                                 <TableCell>{response.feeling}</TableCell>
                                                 <TableCell>{response.understanding}</TableCell>
-                                                <TableCell>E{response.support}</TableCell>
+                                                <TableCell>{response.support}</TableCell>
                                                 <TableCell>{response.comments}</TableCell>
                                                 <TableCell>
                                                     <Button color='error' variant='outlined' onClick={() => { handleDelete(response.id) }}>
