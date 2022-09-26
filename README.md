@@ -72,7 +72,7 @@ Given the opportunity to revisit this project - I would love to continue to fine
 
 On the Review component - I would like to give users the option to conditionally render inputs to change their scores before submitting ... instead of having to navigate to previous pages to adjust scores. I'd also like to give users the option to flag their review as important ~ in case they need to speak to someone personally about their scores. 
 
-I would also like to add a confirmation dialogue - to prevent users from accidentally deleting the wrong row of data in Admin view. On the Admin component - I'd also like to implement something for priority sorting, or conditional rendering based on scores in the survey. 
+I would also like to add a confirmation dialogue - to prevent users from accidentally deleting the wrong row of data in Admin view. On the Admin component - I'd also like to implement something for priority sorting, or conditional rendering based on scores in the survey. (SOLVED confirmation popup)
 
 While the project looks fine on mobile - I would like to continue to fine tune the responsiveness of the app by setting break points for mobile and different screen sizes. 
 
