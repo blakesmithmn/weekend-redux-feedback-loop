@@ -18,11 +18,13 @@ import LinearProgress, { LinearProgressProps } from '@mui/material/LinearProgres
 
 
 function Supported() {
+
     const [rating, setRating] = useState(0);
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const handleSupport = () => {
+    const handleSupport = (e) => {
+        e.preventDefault();
         console.log(rating);
         const action = {
             type: 'SUPPORT_INPUT',

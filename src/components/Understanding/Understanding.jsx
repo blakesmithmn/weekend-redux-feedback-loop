@@ -22,7 +22,8 @@ function Understanding() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const handleUnderstanding = () => {
+    const handleUnderstanding = (e) => {
+        e.preventDefault();
         console.log(rating);
         const action = {
             type: 'UNDERSTANDING_INPUT',

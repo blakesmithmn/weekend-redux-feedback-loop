@@ -21,7 +21,8 @@ function Feelings() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const handleFeelings = () => {
+    const handleFeelings = (e) => {
+        e.preventDefault();
         console.log(rating);
         const action = {
             type: 'FEELING_INPUT',

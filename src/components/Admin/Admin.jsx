@@ -2,6 +2,8 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, setState, useEffect } from 'react';
 import axios from 'axios';
+import swal from 'sweetalert';
+
 // MUI IMPORTS
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
@@ -47,19 +49,36 @@ function Admin() {
     // DELETE ROUTE FOR TABLE ID's
 
     const handleDelete = (id) => {
-        console.log(id);
-        axios({
-            method: 'DELETE',
-            url: `/feedback/${id}`
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this feedback!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
         })
-            .then(response => {
-                fetchFeedback();
-            })
-            .catch(error => {
-                console.log('Error in admin DELETE:', error);
+            .then((willDelete) => {
+                if (willDelete) {
+                    axios({
+                        method: 'DELETE',
+                        url: `/feedback/${id}`
+                    })
+                        .then(response => {
+                            swal("It's Gone!", {
+                                icon: "success",
+                            });
+                            fetchFeedback();
 
-            })
+                        })
+                        .catch(error => {
+                            console.log('Error in admin DELETE:', error);
 
+                        })
+                }
+                else {
+                    swal("Cancelled Successfully!");
+                }
+            }
+            )
     }
 
     return (
